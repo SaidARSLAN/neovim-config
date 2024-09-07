@@ -1,5 +1,3 @@
-Here is a draft README file for your Neovim configuration repository:
-
 ```markdown
 # Neovim Configuration
 
@@ -88,5 +86,3 @@ Contributions are welcome! If you encounter issues or have suggestions, please o
 
 This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for more details.
 ```
-
-You can adjust this README based on your preferences and additional configurations in your repository.
