@@ -1,45 +1,33 @@
 return {
-  "folke/tokyonight.nvim",
+  "rmehri01/onenord.nvim",
   priority = 1000,
   config = function()
-    local transparent = true -- set to true if you would like to enable transparency
-
-    local bg = "#011628"
-    local bg_dark = "#011423"
-    local bg_highlight = "#143652"
-    local bg_search = "#0A64AC"
-    local bg_visual = "#275378"
-    local fg = "#CBE0F0"
-    local fg_dark = "#B4D0E9"
-    local fg_gutter = "#627E97"
-    local border = "#547998"
-
-    require("tokyonight").setup({
-      style = "night",
-      transparent = transparent,
+    -- Default options:
+    require("onenord").setup({
+      theme = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+      borders = true, -- Split window borders
+      fade_nc = true, -- Fade non-current windows, making them more distinguishable
+      -- Style that is applied to various groups: see `highlight-args` for options
       styles = {
-        sidebars = transparent and "transparent" or "dark",
-        floats = transparent and "transparent" or "dark",
+        comments = "NONE",
+        strings = "NONE",
+        keywords = "NONE",
+        functions = "NONE",
+        variables = "NONE",
+        diagnostics = "underline",
       },
-      on_colors = function(colors)
-        colors.bg = bg
-        colors.bg_dark = transparent and colors.none or bg_dark
-        colors.bg_float = transparent and colors.none or bg_dark
-        colors.bg_highlight = bg_highlight
-        colors.bg_popup = bg_dark
-        colors.bg_search = bg_search
-        colors.bg_sidebar = transparent and colors.none or bg_dark
-        colors.bg_statusline = transparent and colors.none or bg_dark
-        colors.bg_visual = bg_visual
-        colors.border = border
-        colors.fg = fg
-        colors.fg_dark = fg_dark
-        colors.fg_float = fg
-        colors.fg_gutter = fg_gutter
-        colors.fg_sidebar = fg_dark
-      end,
+      disable = {
+        background = true, -- Disable setting the background color
+        float_background = false, -- Disable setting the background color for floating windows
+        cursorline = false, -- Disable the cursorline
+        eob_lines = true, -- Hide the end-of-buffer lines
+      },
+      -- Inverse highlight for different groups
+      inverse = {
+        match_paren = false,
+      },
+      custom_highlights = {}, -- Overwrite default highlight groups
+      custom_colors = {}, -- Overwrite default colors
     })
-
-    vim.cmd("colorscheme tokyonight")
   end,
 }

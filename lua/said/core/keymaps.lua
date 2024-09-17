@@ -19,3 +19,4 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Mevcut çalışma a
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Bir sonraki çalışma alanına git" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Bir önce çalışma alanına git" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+

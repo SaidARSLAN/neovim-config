@@ -85,28 +85,6 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
-          end,
-        })
-      end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
       ["emmet_ls"] = function()
         -- configure emmet language server
         lspconfig["emmet_ls"].setup({
@@ -131,12 +109,12 @@ return {
           },
         })
       end,
-      ["tsserver"] = function()
-        -- configure TypeScript/JavaScript server
-        lspconfig["tsserver"].setup({
+      ["ts_ls"] = function()
+        lspconfig["ts_ls"].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            -- additional configuration for tsserver
+          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+          on_attach = function(_, _)
+            -- Buraya ek ayarlar veya komutlar ekleyebilirsiniz.
           end,
         })
       end,
@@ -144,9 +122,8 @@ return {
         -- configure ESLint server
         lspconfig["eslint"].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             -- additional configuration for eslint
-            client.resolved_capabilities.document_formatting = true
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               command = "EslintFixAll",
