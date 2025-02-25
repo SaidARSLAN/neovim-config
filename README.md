@@ -1,4 +1,3 @@
-```markdown
 # Neovim Configuration
 
 This repository contains my personalized Neovim configuration using Lua, designed to enhance productivity and provide an efficient development environment.
@@ -83,5 +82,3 @@ Feel free to customize this configuration by editing the files in the `lua` dire
 Contributions are welcome! If you encounter issues or have suggestions, please open an issue or submit a pull request.
 
 ## License
-
-```
