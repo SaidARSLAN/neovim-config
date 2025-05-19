@@ -7,7 +7,8 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>")
-
-	end
+    -- Aç/Kapat (toggle) tuşu
+    vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
+  end
 }
+
