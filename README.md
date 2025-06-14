@@ -1,60 +1,95 @@
-<div align="center">
-  <img src="./assets/logo/no-background.svg" width="600">
-</div>
+# Neovim Config by SaidARSLAN
+
+A fast and minimal Neovim setup built with Lua. It uses `lazy.nvim` for plugin management and includes modern tools for development, like LSP, Treesitter, and Telescope.
+
+## ✅ Features
+
+* Fully written in Lua
+* Fast startup with lazy plugin loading
+* Plugin management using `lazy.nvim`
+* Modern UI with status line, file tree, fuzzy finder, etc.
+* Built-in code formatting (`stylua`) and linting (`selene`)
+* Lockfile for plugin versions (`lazy-lock.json`)
+* Easy to maintain and extend
 
 ---
 
-## Overview
+## 🚀 Installation
 
-**Vi Mongo** is an intuitive Terminal User Interface (TUI) application, written
-in Go, designed to streamline and simplify the management of MongoDB databases.
-Emphasizing ease of use without sacrificing functionality, Vi Mongo offers a
-user-friendly command-line experience for database administrators and developers
-alike.
+1. Backup your current config (if needed):
 
-Visit [vi-mongo.com](https://vi-mongo.com) for more information.
+   ```bash
+   mv ~/.config/nvim ~/.config/nvim.bak
+   ```
+2. Clone this config:
 
-![autocomplete](./assets/autocomplete.webp)
+   ```bash
+   git clone https://github.com/SaidARSLAN/neovim-config.git ~/.config/nvim
+   ```
+3. Launch Neovim:
 
-## Installation
+   ```bash
+   nvim
+   ```
 
-To install Vi Mongo, follow the instructions on the [installation page](https://vi-mongo.com/docs/installation).
+   Plugins will be installed automatically on first run.
 
-If you are using [Neovim](https://neovim.io/) you can install the plugin from [nvim-plugin](https://github.com/kopecmaciej/vi-mongo.nvim)
+---
 
-## Features
+## 📁 Directory Structure
 
-- **Intuitive Navigation**: Vi Mongo's simple, intuitive interface makes it easy
-  to navigate and manage your MongoDB databases.
-- **Fast switching between databases**: Vi Mongo allows you to fast switch
-  between databases.
-- **Managing Documents**: Vi Mongo allows you to view, create, update, duplicate
-  and delete documents in your databases with ease.
-- **Managing Collections**: Vi Mongo provides a simple way to manage your
-  collections, including the ability to create, delete collections.
-- **Autocomplete**: Vi Mongo offers an autocomplete feature that suggests
-  collection names, database names, and MongoDB commands as you type.
-- **Query History**: Vi Mongo keeps track of your query history, allowing you to
-  easily access and reuse previous queries.
-- **Multiple Styles**: Vi Mongo supports multiple color schemes, they can be
-  selected in config file or add/modify easily.
+```
+~/.config/nvim/
+├── init.lua              # Entry point
+├── lazy-lock.json        # Plugin lockfile
+├── .stylua.toml          # Formatting rules
+├── selene.toml           # Linting rules
+└── lua/
+    ├── settings.lua      # General settings
+    ├── mappings.lua      # Keymaps
+    └── plugins/          # Plugin definitions and configs
+```
 
-## List of features to be implemented
+---
 
-[vi-mongo.com/docs/roadmap](https://vi-mongo.com/docs/roadmap)
+## 🔌 Plugin Management
 
-## Contributing
+* Uses [lazy.nvim](https://github.com/folke/lazy.nvim)
+* Plugins are defined in `lua/plugins/`
+* Each plugin config is organized in subfolders
+* Locked versions with `lazy-lock.json` ensure consistent installs
 
-All contributions are welcome!
+---
 
-1. Create an issue
-2. Fork the repository
-3. Go with the flow
+## 🧹 Code Quality Tools
 
-If possible please write tests for your changes.
+* **stylua** for auto-formatting Lua files
+* **selene** for static analysis and linting
+* Both are configured with their respective `.toml` files in the root
 
-## Issues
+---
 
-For now all issues are resolved, but if you find any new issues, please report
-them in the [GitHub Issues](https://github.com/kopecmaciej/vi-mongo/issues)
-page.
+## ⚙️ Customizing
+
+You can edit these files to suit your needs:
+
+* `lua/settings.lua` – for general editor options
+* `lua/mappings.lua` – for your key bindings
+* `lua/plugins/` – to add or update plugins
+
+To add a plugin:
+
+1. Create an entry in `lua/plugins/init.lua` or a new file
+2. Place your config under `lua/plugins/configs/` if needed
+
+---
+
+## 📄 License
+
+This project is licensed under the **Apache-2.0 License**.
+
+---
+
+## 🙋 Support
+
+Issues and pull requests are welcome. If you find bugs or have suggestions, feel free to open an issue or contribute directly.
